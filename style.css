@@ -1,3 +1,23 @@
 header{
     text-align: center;
 }
+.mainContent{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.cities{
+    background-color: transparent;
+    width: 250px;
+    height: auto;
+}
+.resultsContainer{
+    background-color: brown;
+    width: auto;
+    height: 450px;
+    border-left: solid cornflowerblue 5px;
+}
+.oneDay{
+    border-bottom: solid cornflowerblue 5px;
+    height: 250px;
+}
