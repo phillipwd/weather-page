@@ -21,3 +21,17 @@ header{
     border-bottom: solid cornflowerblue 5px;
     height: 250px;
 }
+.cityRow{
+    display: flex;
+    height: 50px;
+}
+#weatherIcon{
+    display: none;
+}
+.cityName{
+    margin-bottom: 0px;
+}
+#date{
+    margin-left: 10px;
+    margin-right: 10px;
+}

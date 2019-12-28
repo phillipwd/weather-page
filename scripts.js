@@ -8,9 +8,22 @@ $(document).ready(function () {
         console.log(entry);
     $.get(queryUrl).then(function(response){
         console.log(response);
-        $(".cityName").text(response.name + response.weather[0].id);
+        var iconCode = response.weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+        $(".cityName").text(response.name);
+        $("#weatherIcon").attr("src", iconUrl);
+        $("#weatherIcon").show();
+        var today = new Date();
+        var todayString = (parseInt(today.getMonth()) + 1 ) + "/" + today.getDate() + "/" + today.getFullYear()
+        $("#date").text(todayString);
+        var temp = (parseFloat(response.main.temp)*9/5-459.7)
+        var temperature = temp.toFixed(1);
+        $(".temperature").text(temperature);
+        var wind = (parseFloat(response.wind.speed)*2.237);
+        wind = wind.toFixed(1);
+        $(".wind").text(wind + "mph");
+        // var uv = response.uv
 
-        
     });
 }
 
