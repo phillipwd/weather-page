@@ -35,3 +35,30 @@ header{
     margin-left: 10px;
     margin-right: 10px;
 }
+.fiveDay{
+    background-color: teal;
+    display: flex;
+    height: 200px;
+    flex-wrap: wrap;
+}
+#forecastHeader{
+    width: 500px;
+}
+.forecastPane{
+    width: 200px;
+}
+#dayOneIcon{
+    display: none;
+}
+#dayTwoIcon{
+    display: none;
+}
+#dayThreeIcon{
+    display: none;
+}
+#dayFourIcon{
+    display: none;
+}
+#dayFiveIcon{
+    display: none;
+}
