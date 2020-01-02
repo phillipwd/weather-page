@@ -1,8 +1,20 @@
 var key = "b6e84350e43ff80bdae28b8c17a443a0"
 $(document).ready(function () {
-    // var saved = []
-    function retrieve(){
-        var entry = $("#citySearch").val()
+    for(i = 0; i < localStorage.length - 1; i++){
+        var id = localStorage.key([i]);
+        console.log(id);
+        
+        var newButton = $("<button/>",{
+            text: id,
+            id: id,
+        });
+        $(".savedSearches").append(newButton);
+        
+    }
+
+
+    function retrieve(entry){
+        // var entry = $("#citySearch").val()
         localStorage.setItem(entry,entry);
         var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + entry + "&appid=" + key;
         console.log(entry);
@@ -26,18 +38,21 @@ $(document).ready(function () {
             $(".wind").text(wind + "mph");
             var humid = response.main.humidity;
             $(".humidity").text(humid + "%");
-        });
+            lat = response.coord.lat;
+            lon = response.coord.lon;
+        // });
         
-        lat = 47.6;
-        lon = -122.33;
+        // lat = 47.6;
+        // lon = -122.33;
         var uvUrl = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
-        $.get(uvUrl).then(function(response){
+        $.get(uvUrl).then(function(response1){
             // console.log(response);
-            var uvi = response[0].value;
+            var uvi = response1[0].value;
             // console.log(uvi);
             
             $(".uv").text(uvi);
         });
+    });
         var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + entry + "&appid=" + key;
         $.get(forecastUrl).then(function(response){
             console.log(response.list);
@@ -142,6 +157,15 @@ $(document).ready(function () {
         });
     }
 
-    $("button").on("click", retrieve);
+    $("#searchButton").on("click", function(){
+        var text = $("#citySearch").val();
+        retrieve(text);
+    });
+    $("button").on("click", function(){
+        var text = $(this).text();
+        if(text != null){
+            retrieve(text);
+        }
+    })
 
 })

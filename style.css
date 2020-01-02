@@ -1,5 +1,11 @@
 header{
     text-align: center;
+    color: beige;
+    background-color: darkblue;
+
+}
+body{
+    background-color: azure;
 }
 .mainContent{
     display: flex;
@@ -8,18 +14,21 @@ header{
 }
 .cities{
     background-color: transparent;
-    width: 250px;
-    height: auto;
+    width: 150px;
+    height: 100vh;
+    background-color: beige;
 }
 .resultsContainer{
-    background-color: brown;
+    background-color: azure;
     width: auto;
-    height: 450px;
-    border-left: solid cornflowerblue 5px;
+    height: 100vh;
+    border-left: solid cornflowerblue 1px;
+    margin: 0px 5px;
 }
 .oneDay{
-    border-bottom: solid cornflowerblue 5px;
+    border-bottom: solid cornflowerblue 1px;
     height: 250px;
+    width: auto;
 }
 .cityRow{
     display: flex;
@@ -36,10 +45,11 @@ header{
     margin-right: 10px;
 }
 .fiveDay{
-    background-color: teal;
+    background-color: azure;
     display: flex;
     height: 200px;
     flex-wrap: wrap;
+    width: auto;
 }
 #forecastHeader{
     width: 500px;
@@ -61,4 +71,17 @@ header{
 }
 #dayFiveIcon{
     display: none;
+}
+.savedSearches{
+    display: flex;
+    flex-direction: column;
+}
+#citySearch{
+    width: 146px;
+}
+#searchButton{
+    width: 150px;
+}
+button{
+    margin: 5px 0px;
 }
