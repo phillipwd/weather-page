@@ -22,7 +22,7 @@ body{
     background-color: azure;
     width: auto;
     height: 100vh;
-    border-left: solid cornflowerblue 1px;
+    /* border-left: solid cornflowerblue 1px; */
     margin: 0px 5px;
 }
 .oneDay{
@@ -55,7 +55,9 @@ body{
     width: 500px;
 }
 .forecastPane{
-    width: 200px;
+    width: 160px;
+    background-color: lightblue;
+    margin: 20px;
 }
 #dayOneIcon{
     display: none;
