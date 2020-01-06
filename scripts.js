@@ -1,6 +1,6 @@
 var key = "b6e84350e43ff80bdae28b8c17a443a0"
 $(document).ready(function () {
-    for(i = 0; i < localStorage.length - 1; i++){
+    for(i = 0; i < localStorage.length; i++){
         var id = localStorage.key([i]);
         console.log(id);
         
@@ -15,7 +15,9 @@ $(document).ready(function () {
 
     function retrieve(entry){
         // var entry = $("#citySearch").val()
-        localStorage.setItem(entry,entry);
+        if(entry != null){
+            localStorage.setItem(entry,entry);
+        }
         var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + entry + "&appid=" + key;
         console.log(entry);
         var lat = 0;
@@ -157,13 +159,25 @@ $(document).ready(function () {
         });
     }
 
-    $("#searchButton").on("click", function(){
-        var text = $("#citySearch").val();
-        retrieve(text);
-    });
+    // $("#searchButton").on("click", function(){
+    //     var text = $("#citySearch").val();
+    //     console.log("is" + text);
+        
+    //     if(text != null){
+    //         retrieve(text);
+    //     }
+    // });
     $("button").on("click", function(){
-        var text = $(this).text();
-        if(text != null){
+        var ids = this.id;
+        // console.log(ids);
+        if(ids === "searchButton"){
+            // console.log("clicked");
+            var text = $("#citySearch").val();
+            // console.log(text);
+            retrieve(text);
+        }
+        else{
+            var text = $(this).text();
             retrieve(text);
         }
     })
