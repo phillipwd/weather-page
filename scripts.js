@@ -18,14 +18,14 @@ $(document).ready(function () {
         if(entry != null){
             localStorage.setItem(entry,entry);
         }
-        var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + entry + "&appid=" + key;
+        var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + entry + "&appid=" + key;
         console.log(entry);
         var lat = 0;
         var lon = 0;
         $.get(queryUrl).then(function(response){
             // console.log(response);
             var iconCode = response.weather[0].icon;
-            var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
+            var iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png"
             $(".cityName").text(response.name);
             $("#weatherIcon").attr("src", iconUrl);
             $("#weatherIcon").show();
@@ -46,7 +46,7 @@ $(document).ready(function () {
         
         // lat = 47.6;
         // lon = -122.33;
-        var uvUrl = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
+        var uvUrl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
         $.get(uvUrl).then(function(response1){
             // console.log(response);
             var uvi = response1[0].value;
@@ -55,7 +55,7 @@ $(document).ready(function () {
             $(".uv").text(uvi);
         });
     });
-        var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + entry + "&appid=" + key;
+        var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + entry + "&appid=" + key;
         $.get(forecastUrl).then(function(response){
             console.log(response.list);
             var date = new Date();
@@ -93,28 +93,28 @@ $(document).ready(function () {
             var dayOne = new Date(response.list[indexStart].dt*1000).getDate();
             var monthOne = new Date(response.list[indexStart].dt*1000).getMonth() + 1;
             var yearOne = new Date(response.list[indexStart].dt*1000).getFullYear();
-            var dayOneIconUrl = "http://openweathermap.org/img/wn/" +  response.list[indexStart].weather[0].icon + "@2x.png";
+            var dayOneIconUrl = "https://openweathermap.org/img/wn/" +  response.list[indexStart].weather[0].icon + "@2x.png";
 
             // console.log(dayOne);
             var dayTwo = new Date(response.list[indexStart + 8].dt*1000).getDate();
             var monthTwo = new Date(response.list[indexStart + 8].dt*1000).getMonth() + 1;
             var yearTwo = new Date(response.list[indexStart + 8].dt*1000).getFullYear();
-            var dayTwoIconUrl = "http://openweathermap.org/img/wn/" +  response.list[indexStart + 8].weather[0].icon + "@2x.png";
+            var dayTwoIconUrl = "https://openweathermap.org/img/wn/" +  response.list[indexStart + 8].weather[0].icon + "@2x.png";
             // console.log(dayTwo);
             var dayThree = new Date(response.list[indexStart + 16].dt*1000).getDate();
             var monthThree = new Date(response.list[indexStart + 16].dt*1000).getMonth() + 1;
             var yearThree = new Date(response.list[indexStart + 16].dt*1000).getFullYear();
-            var dayThreeIconUrl = "http://openweathermap.org/img/wn/" +  response.list[indexStart + 16].weather[0].icon + "@2x.png";
+            var dayThreeIconUrl = "https://openweathermap.org/img/wn/" +  response.list[indexStart + 16].weather[0].icon + "@2x.png";
 
             var dayFour = new Date(response.list[indexStart + 24].dt*1000).getDate();
             var monthFour = new Date(response.list[indexStart + 24].dt*1000).getMonth() + 1;
             var yearFour = new Date(response.list[indexStart + 24].dt*1000).getFullYear();
-            var dayFourIconUrl = "http://openweathermap.org/img/wn/" +  response.list[indexStart + 24].weather[0].icon + "@2x.png";
+            var dayFourIconUrl = "https://openweathermap.org/img/wn/" +  response.list[indexStart + 24].weather[0].icon + "@2x.png";
 
             var dayFive = new Date(response.list[indexStart + 32].dt*1000).getDate();
             var monthFive = new Date(response.list[indexStart + 32].dt*1000).getMonth() + 1;
             var yearFive = new Date(response.list[indexStart + 32].dt*1000).getFullYear();
-            var dayFiveIconUrl = "http://openweathermap.org/img/wn/" +  response.list[indexStart + 32].weather[0].icon + "@2x.png";
+            var dayFiveIconUrl = "https://openweathermap.org/img/wn/" +  response.list[indexStart + 32].weather[0].icon + "@2x.png";
 
             $("#dayOneDate").text(monthOne + "/" + dayOne + "/" + yearOne);
             $("#dayOneIcon").attr("src", dayOneIconUrl);
